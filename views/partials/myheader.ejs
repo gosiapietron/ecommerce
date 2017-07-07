@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<style>
+
+	div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+
+
+		.banana {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+	</style>
+</head>
+<body>
+
+<ul class=banana>
+  <li><a class="active" href="/products">Home</a></li>
+  <li><a href="/products/add">add items</a></li>
+  <li><a href="/products/admin">admin-home</a></li>
+  <li><a href="/cart/mycart">My cart</a></li>
+  <li style="float:right"><a href="/users/register">Register</a></li>
+  <li style="float:right"><a href="/users/login">
+  Login</a></li>
+  <li style="float:right"><a href="/users/logout">
+  Logout</a></li>
+ 
+</ul>
+
+<%if(currentUser) {%>
+<p style="float:right"><i>logged in as <%=currentUser.username%></i></p>
+<%}%>
+
+<%if(success){%>
+<span class="myClass"><%=success%></span>
+<%}%>
+
+<%if(error) {%>
+<%=error%>
+<%}%>
+
+<script type="text/javascript">
+
+setTimeout(function(){
+  $('.myClass').fadeOut();}, 3000)
+
+
+</script>
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<%include ./partials/myheader%>
+
+<ul>
+<% data.map((item)=>{ %>
+<br>
+<% item.photos.map((x)=>{ %>
+<% if(x.photo)%>
+<input type="image" src="<%=x.photo%>" alt="photo">
+<form action="/products/deletephoto/<%=item._id%>" method="post">
+<input type="hidden" name="photo" value="<%=x.photo%>">
+<button class="btn btn-default">Delete photo</button>
+</form>
+<%})%>
+<br>
+Item: <%=item.item%>
+<form action="/products/deleteitem/<%=item._id%>" method="post">
+<button class="btn btn-default">Delete item</button>
+</form>
+<br>
+<form action="/products/edititem/<%=item.item%>" method="post">
+<button class="btn btn-default">Edit item</button>
+<input class="btn btn-default" type="text" name="edititem">
+</form>
+<br>
+Description: <%=item.description%>
+<br>
+<form action="/products/editdescription/<%=item.item%>" method="post">
+<button class="btn btn-default">Edit description</button>
+<input class="btn btn-default" type="text" name="editdescription">
+</form>
+<br>
+<%})%>
+</ul>
+
+
+
+<%include ./partials/footer%>

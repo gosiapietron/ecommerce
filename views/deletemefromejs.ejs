@@ -1,0 +1,14 @@
+<%if(currentUser) {%>
+<%var myVar%>
+<% myVar = setTimeout(alertFunc, 3000)%>
+<%}%>
+<%function alertFunc() {%>
+<p><i>Successfully logged in</i></p>
+<%}%>
+<%}%>
+
+setTimeout(function(){
+  $('.myClass').fadeOut();}, 3000)
+
+  $( ".myClass" ).remove()
+

@@ -1,0 +1,37 @@
+<%include ./partials/myheader%>
+
+<br>
+<a class="btn btn-default" href="/products/updatepage">Update your products</a>
+
+<ul>
+<% data.map((item)=>{ %>
+<br>
+<% item.photos.map((x)=>{ %>
+<% if(x.photo)%>
+<input type="image" src="<%=x.photo%>" alt="photo">
+<%})%>
+<br>
+Item: <%=item.item%>
+<br>
+Price: <%=item.price%>
+<br>
+<form action="/products/editprice/<%=item.item%>" method="post">
+<button class="btn btn-default">Edit price</button>
+<input class="btn btn-default" type="number" name="editprice">
+</form>
+<br>
+Stock: <%=item.availability%>
+<br>
+<form action="/products/editstock/<%=item.item%>" method="post">
+<button class="btn btn-default">Edit stock</button>
+<input class="btn btn-default" type="number" name="editstock">
+</form>
+<br>
+<a class="btn btn-default" href="/products/addphotos/<%=item.item%>">Add photos</a>
+<br>
+<%})%>
+</ul>
+
+
+
+<%include ./partials/footer%>

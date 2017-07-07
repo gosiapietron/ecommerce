@@ -1,0 +1,8 @@
+<div>
+<form action="/sentences/<%=id%>/update/<%=lang%>" method="post">
+<!--	action determins which route will be triggered-->
+<input type="text" name="newLang">
+<!--	assigning the name we can then get the value from req.body using body parser-->
+<input type="submit" value="Update the translation">
+</form>
+</div>

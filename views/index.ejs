@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+
+<div>
+<form action="/sentences" method="post">
+<!--	action determins which route will be triggered-->
+<input class="btn btn-default" type="text" name="sentence">
+<!--	assigning the name we can then get the value from req.body using body parser-->
+<input type="submit" value="add sentence">
+</form>
+</div>
+
+<ul>
+<% if(mySentences){ %>
+<% for(var i in mySentences){ %>
+	<% if(mySentences[i]){ %>
+<li>
+<%=mySentences[i].sentence%>
+<%}%>
+<form action="/sentences/<%=mySentences[i].sentence%>/delete" method="post">
+<button class="btn btn-default">Delete</button>
+</form>
+<a class="btn btn-default" href="/sentences/<%=mySentences[i].sentence%>/update">Update</a>
+<a class="btn btn-default" href="/sentences/<%=mySentences[i].sentence%>/translate">Add</a>
+<ul>
+<% if(mySentences[i].translations){%>
+<%for(var x in mySentences[i].translations){%>
+	<% if(mySentences[i].translations[x]){%>
+<li>
+<%=mySentences[i].translations[x].language%>
+<%=mySentences[i].translations[x].translation%>
+<%}%>
+<form action="/sentences/<%=mySentences[i].sentence%>/delete/<%=mySentences[i].translations[x].language%>" method="post">
+<button class="btn btn-default">Delete</button>
+</form>
+<a class="btn btn-default" href="/sentences/<%=mySentences[i].sentence%>/update/<%=mySentences[i].translations[x].language%>">Update</a>
+<%}%>
+<%}%>
+</li>
+</ul>
+</li>
+</li>
+<%}%>
+<%}%>
+
+
+
+
+</ul>
+
+
+
+</html>

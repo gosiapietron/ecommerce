@@ -1,0 +1,11 @@
+<div>
+<form action="/sentences/<%=sentence%>/translate" method="post">
+<!--	action determins which route will be triggered-->
+<tr>Language</tr>
+<input type="text" name="language">
+<!--	assigning the name we can then get the value from req.body using body parser-->
+<tr>Translation</tr>
+<input type="text" name="translation">
+<input type="submit" value="Add translation">
+</form>
+</div>

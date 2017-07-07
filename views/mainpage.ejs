@@ -1,0 +1,26 @@
+<%include ./partials/myheader%>
+
+<div class="container">
+<div class="row">
+<% data.map((item)=>{ %>
+<div class="col-md-3 thumbnail">
+<h1>banana</h1>
+Item: <%=item.item%><br>
+Price: <%=item.price%><br>
+Description: <%=item.description%><br>
+Availability:<%=item.availability%><br>
+<form action="/cart/buy/<%=item.item%>/<%=item.price%>/<%=item.availability%>" method="post">
+<button type="submit">
+<i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+</button>
+</form>
+	</div>
+<%})%>
+</div>
+</div>
+
+
+
+
+
+<%include ./partials/footer%>

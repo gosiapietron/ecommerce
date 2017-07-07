@@ -1,0 +1,14 @@
+<ul>
+<% for(var i in mySentences){ %>
+	<% if(mySentences[i]){ %>
+<li>
+<%=mySentences[i].sentence%>
+<%}%>
+<input type="submit" value="Delete">
+<input type="submit" value="Update">
+<input type="submit" value="Add">
+</li>
+<%}%>
+
+
+</ul>

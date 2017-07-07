@@ -1,0 +1,20 @@
+<%include ./partials/myheader%>
+
+
+
+<div class="form">
+<p>ADD ITEMS</p>
+<form action="/products/add" method="post">
+Item <input class="btn btn-default" type="text" name="item">
+<br>
+Price <input class="btn btn-default" type="number" name="price">
+<br>
+Description <input class="btn btn-default" type="text" name="description">
+<br>
+Availability <input class="btn btn-default" type="number" name="availability">
+<br>
+<input class="btn btn-success" type="submit" value="Submit">
+</form>
+</div>
+
+<%include ./partials/footer%>

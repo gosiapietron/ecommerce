@@ -1,0 +1,38 @@
+<%include ./partials/myheader%>
+
+<ul>
+<% data.map((item)=>{ %>
+<br>
+Name: <%=item.name%>
+<br>
+Price: <%=item.price%>
+<br>
+Availability: <%=item.availability%>
+<br>
+Quantity: <%=item.quantity%>
+<br>
+<form action="/cart/<%=item.name%>/<%=item.availability%>/plus" method="post">
+<button class="btn btn-default">+</button>
+</form>
+<br>
+<form action="/cart/<%=item.name%>/<%=item._id%>/minus" method="post">
+<button class="btn btn-default">-</button>
+</form>
+<br>
+<%})%>
+
+</ul>
+
+<% var sum=0 %>
+<% data.map((item)=>{ %>
+<% sum= sum+ (item.price*item.quantity)%>
+<%})%>
+Total: <%=sum%>
+<br>
+<form action="/cart/checkout/<%=sum%>" method="post">
+<button class="btn btn-default">go to checkout</button>
+</form>
+
+
+
+<%include ./partials/footer%>

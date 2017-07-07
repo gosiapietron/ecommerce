@@ -1,0 +1,42 @@
+
+<%include ./partials/header%>
+
+<div>
+<form action="/sentences" method="post">
+<!--	action determins which route will be triggered-->
+<input class="btn btn-default" type="text" name="sentence">
+<!--	assigning the name we can then get the value from req.body using body parser-->
+<input type="submit" value="add sentence">
+</form>
+</div>
+
+
+<ul>
+<% data.map((item)=>{ %>
+<li>
+<%=item.sentence%>
+<br>
+<form action="/sentences/<%=item._id%>/delete" method="post">
+<button class="btn btn-default">Delete</button>
+</form>
+<a class="btn btn-default" href="/sentences/<%=item.sentence%>/update">Update</a>
+<a class="btn btn-default" href="/sentences/<%=item.sentence%>/translate">Add</a>
+</li>
+
+<% item.translations.map((x)=>{ %>
+
+<%=x.language%>
+<%=x.translation%>
+
+<form action="/sentences/<%=item._id%>/delete/<%=x.language%>" method="post">
+<button class="btn btn-default">Delete</button>
+</form>
+<a class="btn btn-default" href="/sentences/<%=item._id%>/update/<%=x.language%>">Update</a>
+<br>
+<%})%>
+<%})%>
+
+</ul>
+
+<%include ./partials/footer%>
+
